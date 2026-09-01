@@ -18,7 +18,7 @@
 </p>
 
 ---
-
+# Pulso 
 ## Visão Geral do Projeto
 Projeto acadêmico desenvolvido para a disciplina de Inteligência Artificial da FIAP (turma 2025/2), como parte do método PBL — Project Based Learning.
 
@@ -197,5 +197,6 @@ Este projeto é acadêmico e tem finalidade exclusivamente educacional. Os dados
 
 Richard Schmitz
 Graduação Tecnológica em Inteligência Artificial — FIAP
-Turma 2025/2
+Turma 2TIAOR-2026
+
 GitHub: https://github.com/flango2023
