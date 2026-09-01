@@ -14,11 +14,11 @@
 
 <p align="center">
   <strong>Autor:</strong> Richard Schmitz &nbsp;|&nbsp; <strong>RM:</strong> 567951<br>
-  <strong>Curso EAD:</strong> Inteligência Artificial — FIAP &nbsp;|&nbsp; <strong>Fase:</strong> 1 — Pulso — Inteligência Cardiológica com Consciência de Dados
+  <strong>Curso EAD:</strong> Inteligência Artificial — FIAP &nbsp;|&nbsp; <strong>Fase:</strong> 1: Pulso — Inteligência Cardiológica com Consciência de Dados
 </p>
 
 ---
-# Pulso 
+# Pulso: Inteligência Cardiológica com Consciência de Dados
 ## Visão Geral do Projeto
 
 O Pulso simula o ecossistema de dados de uma plataforma de cardiologia inteligente. Ao longo de sete fases, o projeto integra Machine Learning, IoT, Visão Computacional, NLP e séries temporais aplicados à saúde cardiovascular.
