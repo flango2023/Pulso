@@ -20,7 +20,6 @@
 ---
 # Pulso 
 ## Visão Geral do Projeto
-Projeto acadêmico desenvolvido para a disciplina de Inteligência Artificial da FIAP (turma 2025/2), como parte do método PBL — Project Based Learning.
 
 O Pulso simula o ecossistema de dados de uma plataforma de cardiologia inteligente. Ao longo de sete fases, o projeto integra Machine Learning, IoT, Visão Computacional, NLP e séries temporais aplicados à saúde cardiovascular.
 
