@@ -14,7 +14,7 @@
 
 <p align="center">
   <strong>Autor:</strong> Richard Schmitz &nbsp;|&nbsp; <strong>RM:</strong> 567951<br>
-  <strong>Disciplina:</strong> Inteligência Artificial — FIAP &nbsp;|&nbsp; <strong>Fase:</strong> 1 — Pulso — Inteligência Cardiológica com Consciência de Dados
+  <strong>Curso EAD:</strong> Inteligência Artificial — FIAP &nbsp;|&nbsp; <strong>Fase:</strong> 1 — Pulso — Inteligência Cardiológica com Consciência de Dados
 </p>
 
 ---
