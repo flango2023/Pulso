@@ -199,3 +199,4 @@ Graduação Tecnológica em Inteligência Artificial — FIAP
 Turma 2TIAOR-2026
 
 GitHub: https://github.com/flango2023
+Linkedin: https://www.linkedin.com/in/richard-schmitz01/
