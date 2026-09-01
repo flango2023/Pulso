@@ -81,6 +81,7 @@ As imagens de ECG estão hospedadas externamente devido ao volume de arquivos. O
 - Licença: CC BY 4.0
 
 ### Origem dos dados
+**https://www.kaggle.com/datasets/shayanfazeli/heartbeat**
 
 Os dados foram coletados originalmente em 1988 por Robert Detrano no V.A. Medical Center de Long Beach e na Cleveland Clinic Foundation. Cada registro representa um paciente submetido a angiografia coronariana, com variáveis clínicas e fisiológicas coletadas antes do procedimento.
 
