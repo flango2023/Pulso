@@ -1,5 +1,25 @@
-# Pulso — Inteligência Cardiológica com Consciência de Dados
+# FIAP — Faculdade de Informática e Administração Paulista
 
+<p align="center">
+  <a href="https://www.fiap.com.br/">
+    <img src="https://raw.githubusercontent.com/flango2023/TEMPLATE-TIAO-2026/main/assets/logo-fiap.png"
+         alt="FIAP" border="0" width="40%" height="40%">
+  </a>
+</p>
+
+<br>
+<h2 align="center">A Busca de Dados: Preparando o Terreno para a Inteligência Cardiológica</h2>
+<p align="center">
+</p>
+
+<p align="center">
+  <strong>Autor:</strong> Richard Schmitz &nbsp;|&nbsp; <strong>RM:</strong> 567951<br>
+  <strong>Disciplina:</strong> Inteligência Artificial — FIAP &nbsp;|&nbsp; <strong>Fase:</strong> 1 — Pulso — Inteligência Cardiológica com Consciência de Dados
+</p>
+
+---
+
+## Visão Geral do Projeto
 Projeto acadêmico desenvolvido para a disciplina de Inteligência Artificial da FIAP (turma 2025/2), como parte do método PBL — Project Based Learning.
 
 O Pulso simula o ecossistema de dados de uma plataforma de cardiologia inteligente. Ao longo de sete fases, o projeto integra Machine Learning, IoT, Visão Computacional, NLP e séries temporais aplicados à saúde cardiovascular.
