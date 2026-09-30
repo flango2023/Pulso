@@ -9,8 +9,6 @@
 
 <br>
 <h2 align="center">A Busca de Dados: Preparando o Terreno para a Inteligência Cardiológica</h2>
-<p align="center">
-</p>
 
 <p align="center">
   <strong>Autor:</strong> Richard Schmitz &nbsp;|&nbsp; <strong>RM:</strong> 567951<br>
@@ -18,8 +16,8 @@
 </p>
 
 ---
+
 # Pulso: Inteligência Cardiológica com Consciência de Dados
-## Visão Geral do Projeto
 
 O Pulso simula o ecossistema de dados de uma plataforma de cardiologia inteligente. Ao longo de sete fases, o projeto integra Machine Learning, IoT, Visão Computacional, NLP e séries temporais aplicados à saúde cardiovascular.
 
@@ -39,7 +37,14 @@ O Pulso foi construído em torno de uma questão clínica e de governança docum
 
 **doenças cardíacas em mulheres são sistematicamente subdiagnosticadas porque os dados históricos que treinaram sistemas de triagem refletem uma população majoritariamente masculina.**
 
-Isso não é uma hipótese acadêmica. É um problema real, com consequências reais para pacientes reais. O projeto usa esse contexto como fio condutor para todas as decisões técnicas — desde a escolha do dataset até a forma como os modelos serão avaliados nas fases seguintes.
+Isso não é uma hipótese acadêmica. É um problema documentado na literatura científica. Mosca et al. (2011) demonstraram que mulheres com síndrome coronariana aguda apresentam sintomas atípicos com maior frequência e são encaminhadas para investigação invasiva com menos frequência do que homens com quadros equivalentes. Mehta et al. (2016) identificaram que mulheres jovens com infarto agudo do miocárdio têm mortalidade hospitalar significativamente maior do que homens da mesma faixa etária, em parte devido ao atraso no diagnóstico. No contexto brasileiro, os Arquivos Brasileiros de Cardiologia publicaram revisões documentando esse padrão de subdiagnóstico no sistema de saúde nacional.
+
+Referências:
+- Mosca L, et al. Sex/gender differences in cardiovascular disease prevention. Circulation. 2011;124(19):2145-54.
+- Mehta LS, et al. Acute Myocardial Infarction in Women. Circulation. 2016;133(9):916-47.
+- Arquivos Brasileiros de Cardiologia — artigos disponíveis em `assets/texts/`
+
+O projeto usa esse contexto como fio condutor para todas as decisões técnicas — desde a escolha do dataset até a forma como os modelos serão avaliados nas fases seguintes.
 
 Além disso, o Pulso incorpora desde a Fase 1 uma perspectiva de monitoramento contínuo: os dados são estruturados para refletir variáveis que poderiam ser coletadas por dispositivos wearables, preparando o terreno para a integração com IoT na Fase 3.
 
@@ -57,15 +62,18 @@ pulso/
 │   └── heart_disease.csv
 │
 ├── assets/
-│   └── texts/
-│       ├── genero_doenca_cardiovascular.txt
-│       └── monitoramento_remoto_cardiaco.txt
+│   ├── texts/
+│   │   ├── genero_doenca_cardiovascular.txt
+│   │   ├── genero_doenca_cardiovascular2.txt
+│   │   └── monitoramento_remoto_cardiaco.txt
+│   └── images/
+│       └── image_manifest.md
 │
 └── docs/
     └── governance.md
 ```
 
-As imagens de ECG estão hospedadas externamente devido ao volume de arquivos. O link de acesso está na seção de dados visuais abaixo.
+As imagens de ECG estão hospedadas externamente devido ao volume de arquivos. O link de acesso e o manifesto completo estão na seção de dados visuais abaixo.
 
 ---
 
@@ -113,29 +121,47 @@ O dataset apresenta desequilíbrio de representação por sexo: 68% dos registro
 
 ### Valores ausentes
 
-As colunas `ca` e `thal` contêm valores ausentes representados pelo caractere `?`. O tratamento desses valores será realizado na Fase 2, durante o pré-processamento para treinamento dos modelos.
+As colunas `ca` e `thal` contêm valores ausentes representados pelo caractere `?`, conforme o arquivo original do UCI. O CSV entregue preserva esses valores sem modificação, exatamente como coletados na fonte.
+
+Distribuição dos valores ausentes:
+
+| Coluna | Registros com `?` |
+|---|---|
+| ca | 4 registros (linhas 89, 168, 194, 304) |
+| thal | 2 registros (linhas 268, 289) |
+
+O tratamento desses valores — substituição por mediana, média ou remoção — será realizado na Fase 2, durante o pré-processamento para treinamento dos modelos. O CSV desta fase preserva o estado original dos dados intencionalmente, para que a decisão de tratamento seja documentada e justificada na fase seguinte.
 
 ---
 
 ## Parte 2 — Dados Textuais
 
-Os textos estão armazenados em `assets/texts/` e foram obtidos de fontes científicas abertas em português.
+Os textos estão armazenados em `assets/texts/` como arquivos UTF-8 com texto extraído de fontes científicas abertas em português. Os três arquivos foram convertidos de PDF para texto limpo e podem ser abertos e processados diretamente por pipelines de NLP sem etapa adicional de extração.
 
-### Texto 1 — Gênero e doença cardiovascular
+### Texto 1 — Diferenças nas doenças cardiovasculares entre homens e mulheres
 
 - Arquivo: `assets/texts/genero_doenca_cardiovascular.txt`
 - Tema: diferenças clínicas e epidemiológicas entre homens e mulheres no contexto de doenças cardiovasculares
-- Fonte: Arquivos Brasileiros de Cardiologia / SciELO Brasil
+- Fonte: medizinonline.com/pt-pt — artigo em português sobre diferenças de gênero em doenças cardiovasculares
+- Tamanho: ~23.000 caracteres
 
-### Texto 2 — Monitoramento remoto cardíaco
+### Texto 2 — Abordando as disparidades de gênero em cardiologia
+
+- Arquivo: `assets/texts/genero_doenca_cardiovascular2.txt`
+- Tema: disparidades de gênero no diagnóstico e tratamento cardiovascular, com foco em subdiagnóstico feminino
+- Fonte: Arquivos Brasileiros de Cardiologia — SciELO Brasil (https://www.scielo.br/j/abc/a/vztKvVVLxQ8rbWQhQH489Zb/?lang=pt)
+- Tamanho: ~14.600 caracteres
+
+### Texto 3 — Telemonitoramento cardíaco
 
 - Arquivo: `assets/texts/monitoramento_remoto_cardiaco.txt`
 - Tema: telemonitoramento cardíaco, dispositivos remotos e acompanhamento de pacientes fora do ambiente hospitalar
-- Fonte: SciELO Brasil / BVS
+- Fonte: Arquivos Brasileiros de Cardiologia — PubMed Central (https://pmc.ncbi.nlm.nih.gov/articles/PMC8959025/), doi: 10.36660/abc.20201264
+- Tamanho: ~52.000 caracteres
 
 ### Como esses textos serão explorados por NLP
 
-Os dois textos foram escolhidos com as fases seguintes em mente. Na Fase 5, quando o módulo de NLP for desenvolvido, eles poderão ser utilizados para:
+Os três textos foram escolhidos com as fases seguintes em mente. Na Fase 5, quando o módulo de NLP for desenvolvido, eles poderão ser utilizados para:
 
 - Extração de entidades clínicas: identificar automaticamente termos como sintomas, medicamentos, condições e procedimentos mencionados nos textos
 - Classificação de tópicos: categorizar trechos por área temática (diagnóstico, tratamento, prevenção, monitoramento)
@@ -150,12 +176,17 @@ A escolha por textos em português é intencional: o sistema simulado tem como c
 
 ### Dataset de imagens de ECG
 
-- Fonte: Kaggle (dataset público de imagens de ECG)
+- Dataset: ECG Images dataset of Cardiac and COVID-19 Patients
+- Autor: Sajid Hussain
+- Fonte: Kaggle — https://www.kaggle.com/datasets/sajid576/ecg-image-dataset
+- Licença: CC BY-NC-SA 4.0
 - Formato: imagens .jpg e .png de traçados eletrocardiográficos
-- Quantidade: 100+ imagens
-- Link de acesso: https://drive.google.com/drive/folders/1pWUyu3WJ6LYGySPHHTI8K3kaqvChJpKN?usp=share_link
+- Classes: Normal e Abnormal
+- Quantidade: 100+ imagens selecionadas
+- Link de acesso ao conjunto preparado: https://drive.google.com/drive/folders/1pWUyu3WJ6LYGySPHHTI8K3kaqvChJpKN?usp=share_link
+- Manifesto completo: `assets/images/image_manifest.md`
 
-O link acima está configurado para acesso público. Qualquer pessoa com o link pode visualizar e baixar as imagens.
+O link está configurado para acesso público. Qualquer pessoa com o link pode visualizar e baixar as imagens.
 
 ### Por que ECG
 
@@ -172,7 +203,7 @@ Na Fase 4, as imagens de ECG serão processadas com técnicas de Visão Computac
 - Extração de padrões: análise de morfologia das ondas para identificar padrões associados a condições específicas
 - Classificação: uso de redes neurais convolucionais (CNN) para categorizar traçados por tipo de ritmo ou condição cardíaca
 
-A conexão entre o sinal visual do ECG e as variáveis numéricas do dataset Cleveland é um dos diferenciais do projeto: nas fases avançadas, será possível comparar o que o modelo numérico e o modelo visual identificam sobre o mesmo paciente simulado.
+A conexão entre o sinal visual do ECG e as variáveis numéricas do dataset Cleveland é um dos diferenciais do projeto. Nas fases avançadas, será possível comparar padrões clínicos identificados pelo modelo numérico e pelo modelo visual. É importante registrar que não existe vínculo direto entre os pacientes da base Cleveland e os ECGs do conjunto visual — a comparação será feita em nível de padrão clínico e categoria diagnóstica, não de paciente individual. Esse vínculo está documentado no manifesto de imagens.
 
 ---
 
@@ -180,7 +211,7 @@ A conexão entre o sinal visual do ECG e as variáveis numéricas do dataset Cle
 
 A documentação completa de governança está em `docs/governance.md`.
 
-Ela cobre: origem e licença dos dados, viés identificado, qualidade dos dados, valores ausentes, uso pretendido, uso não pretendido, privacidade e supervisão humana.
+Ela cobre: origem e licença dos dados, viés de gênero, viés de faixa etária, viés geográfico, viés de período histórico, viés de seleção, qualidade dos dados, valores ausentes, uso pretendido, uso não pretendido, privacidade e supervisão humana.
 
 O Pulso trata governança como parte do projeto, não como apêndice.
 
@@ -199,4 +230,4 @@ Graduação Tecnológica em Inteligência Artificial — FIAP
 Turma 2TIAOR-2026
 
 GitHub: https://github.com/flango2023
-Linkedin: https://www.linkedin.com/in/richard-schmitz01/
+LinkedIn: https://www.linkedin.com/in/richard-schmitz01/
